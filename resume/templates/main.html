@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} | {{ name }}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            background: #0d1117;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px 16px;
+        }
+
+        .term-shell { width: 100%; display: flex; justify-content: center; }
+        .term-window {
+            background: #010409;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            max-width: 900px;
+            width: 100%;
+            overflow: hidden;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .term-bar {
+            background: #161b22;
+            padding: 10px 14px;
+            display: flex;
+            gap: 6px;
+            align-items: center;
+            border-bottom: 1px solid #30363d;
+        }
+        .term-bar .dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+        .term-bar .dot-red { background: #ff5f57; }
+        .term-bar .dot-yellow { background: #febc2e; }
+        .term-bar .dot-green { background: #28c840; }
+        .term-title {
+            color: #8b949e;
+            font-size: 12px;
+            font-family: 'SF Mono', Menlo, Consolas, monospace;
+            margin-left: 10px;
+        }
+
+        .term-body { padding: 18px 22px; }
+        .prompt { color: #3fb950; }
+        .cmd { color: #c9d1d9; font-family: 'SF Mono', Menlo, Consolas, monospace; font-size: 13px; }
+        .cmd-line { margin-bottom: 10px; }
+
+        .cat-box { display: inline-flex; align-items: center; gap: 4px; vertical-align: middle; cursor: pointer; }
+        .tiny-cat { display: block; vertical-align: middle; }
+        .tiny-cat .tc-tail { transform-box: fill-box; transform-origin: left center; animation: tcw 2.6s ease-in-out infinite; }
+        .tiny-cat .tc-eyes { transform-box: fill-box; transform-origin: center; animation: tcblink 3.4s ease-in-out infinite; }
+        .cat-box.hovering .tc-tail { animation: tcwfast 0.4s ease-in-out infinite; }
+        @keyframes tcw { 0%, 100% { transform: rotate(-6deg); } 50% { transform: rotate(10deg); } }
+        @keyframes tcwfast { 0%, 100% { transform: rotate(-20deg); } 50% { transform: rotate(22deg); } }
+        @keyframes tcblink { 0%, 90%, 100% { transform: scaleY(1); } 94% { transform: scaleY(0.55); } }
+        .cat-msg { font-family: 'SF Mono', Menlo, Consolas, monospace; font-size: 12px; color: #fbbf24; margin-top: 4px; min-height: 18px; }
+
+        .mag {
+            font-family: Georgia, 'Times New Roman', serif;
+            color: #1f2328;
+            background: #ffffff;
+            border-radius: 8px;
+            margin-top: 12px;
+            padding: 30px 34px;
+        }
+        .mag-head { text-align: center; border-bottom: 2px solid #111; padding-bottom: 18px; }
+        .mag-name { font-size: 44px; font-weight: 700; letter-spacing: 4px; }
+        .mag-role { font-size: 13px; color: #666; margin-top: 8px; letter-spacing: 4px; }
+
+        .mag-body { display: flex; gap: 32px; margin-top: 22px; }
+        .mag-left { flex: 1.55; }
+        .mag-right { flex: 1; border-left: 1px solid #e5e5e5; padding-left: 24px; }
+
+        .mag-sec {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #999;
+            margin: 0 0 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #eee;
+        }
+        .mag-text { font-size: 13.5px; line-height: 1.85; color: #333; }
+        .mag-text strong { color: #111; }
+        .mag-left .mag-sec { margin-top: 26px; }
+        .mag-left .mag-sec:first-child { margin-top: 0; }
+        .mag-right .mag-sec { margin-top: 26px; }
+
+        .job { margin-bottom: 18px; }
+        .job h3 { font-size: 15px; margin: 0 0 3px; }
+        .job .period { color: #999; font-weight: 400; font-size: 12.5px; }
+        .job ul { margin: 6px 0 0; padding-left: 18px; }
+        .job li { font-size: 13px; color: #444; line-height: 1.75; margin-bottom: 2px; }
+
+        .hl-line { display: flex; gap: 10px; margin: 14px 0 18px; }
+        .hl { flex: 1; text-align: center; padding: 12px 6px; background: #f6f8fa; border: 1px solid #e5e5e5; }
+        .hl .n { font-size: 22px; font-weight: 700; color: #111; }
+        .hl .l { font-size: 9.5px; color: #666; letter-spacing: 1px; text-transform: uppercase; margin-top: 2px; }
+
+        .stack { font-size: 12px; color: #555; line-height: 2.1; }
+        .lang { font-size: 12.5px; color: #555; line-height: 2; }
+        .skill { margin-bottom: 8px; }
+        .skill .srow { display: flex; justify-content: space-between; font-size: 12px; color: #444; margin-bottom: 3px; }
+        .skill .bar { background: #eee; height: 6px; border-radius: 3px; overflow: hidden; }
+        .skill .fill { height: 100%; border-radius: 3px; }
+        .skill .c1 { background: linear-gradient(90deg, #6366f1, #8b5cf6); }
+        .skill .c2 { background: linear-gradient(90deg, #0ea5e9, #3b82f6); }
+        .skill .c3 { background: linear-gradient(90deg, #10b981, #059669); }
+        .skill .c4 { background: linear-gradient(90deg, #f59e0b, #f97316); }
+        .skill .c5 { background: linear-gradient(90deg, #ef4444, #dc2626); }
+
+        .lang-switch {
+            position: fixed;
+            top: 12px;
+            right: 16px;
+            display: flex;
+            gap: 8px;
+            font-size: 12px;
+            font-family: 'SF Mono', Menlo, Consolas, monospace;
+            z-index: 10;
+        }
+        .lang-switch a { color: #8b949e; text-decoration: none; padding: 2px 6px; border-radius: 4px; }
+        .lang-switch a:hover { color: #fff; background: rgba(255,255,255,0.08); }
+
+        @media (max-width: 700px) {
+            .mag-body { flex-direction: column; gap: 20px; }
+            .mag-right { border-left: none; padding-left: 0; border-top: 1px solid #e5e5e5; padding-top: 20px; }
+            .mag-name { font-size: 32px; }
+            .term-body { padding: 12px 14px; }
+            .mag { padding: 20px 16px; }
+            .hl-line { flex-wrap: wrap; }
+            .hl { flex: 1 1 40%; min-width: 80px; }
+        }
+        @media (max-width: 450px) {
+            .mag-name { font-size: 26px; }
+            .hl .n { font-size: 18px; }
+            .term-title { font-size: 10px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="lang-switch">
+      <a href="https://github.com/Patata-echo/resume/raw/main/resume.pdf" download target="_blank" title="{{ t.download_pdf }}"><i class="fa-solid fa-download"></i></a>
+    </div>
+
+    <div class="term-shell">
+        <div class="term-window">
+            <div class="term-bar">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-yellow"></span>
+                <span class="dot dot-green"></span>
+                <span class="term-title">echo@resume: ~/echo</span>
+            </div>
+            <div class="term-body">
+                <div class="cmd-line">
+                    <span class="prompt">$</span>
+                    <span class="cmd cat-box" id="catBox">
+                        <svg class="tiny-cat" id="tinyCat" width="18" height="15" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+                            <g class="tc-tail"><path d="M64 52 q15 -2 20 -16 q2 -9 -9 -8" stroke="#f59e0b" stroke-width="8" fill="none" stroke-linecap="round"/></g>
+                            <ellipse cx="45" cy="63" rx="29" ry="23" fill="#f59e0b"/>
+                            <ellipse cx="45" cy="72" rx="16" ry="11" fill="#fef3c7"/>
+                            <circle cx="45" cy="34" r="21" fill="#f59e0b"/>
+                            <path d="M30 21 L26 8 L37 15 Z" fill="#f59e0b"/>
+                            <path d="M30 21 L26 8 L37 15 Z" fill="#fcd34d"/>
+                            <path d="M60 21 L64 8 L53 15 Z" fill="#f59e0b"/>
+                            <path d="M60 21 L64 8 L53 15 Z" fill="#fcd34d"/>
+                            <g class="tc-eyes"><ellipse cx="37" cy="31" rx="3.8" ry="4.8" fill="#1f2937"/><ellipse cx="53" cy="31" rx="3.8" ry="4.8" fill="#1f2937"/></g>
+                            <ellipse cx="45" cy="38" rx="2.2" ry="1.6" fill="#fb7185"/>
+                            <path d="M45 40 q-2.8 3.4 0 3.4 q2.8 0 0 -3.4" fill="#1f2937"/>
+                            <ellipse cx="27" cy="39" rx="3.4" ry="2.2" fill="#fda4af" opacity="0.7"/>
+                            <ellipse cx="63" cy="39" rx="3.4" ry="2.2" fill="#fda4af" opacity="0.7"/>
+                        </svg>
+                        resume.txt
+                    </span>
+                </div>
+                <div class="cat-msg" id="catMsg"></div>
+
+                <div class="mag">
+                    <div class="mag-head">
+                        <div class="mag-name">{{ name }}</div>
+                        <div class="mag-role">{{ headline }}</div>
+                    </div>
+                    <div class="mag-body">
+                        <div class="mag-left">
+                            <div class="mag-sec">{{ t.summary }}</div>
+                            <div class="mag-text">{{ bio|markdown }}</div>
+                            <div class="hl-line">
+                                {% for h in highlights %}
+                                <div class="hl">
+                                    <div class="n">{{ h.value }}<span class="unit"> {{ h.unit }}</span></div>
+                                    <div class="l">{{ h.label }}</div>
+                                </div>
+                                {% endfor %}
+                            </div>
+
+                            <div class="mag-sec">{{ t.work_experience }}</div>
+                            {% for job in work_experience %}
+                            <div class="job">
+                                <h3>{{ job.position }} <span class="period">· {{ job.start }} – {{ job.end }}</span></h3>
+                                <div class="job-content">{{ job.content|markdown }}</div>
+                            </div>
+                            {% endfor %}
+
+                            <div class="mag-sec">{{ t.education }}</div>
+                            {% for item in education %}
+                            <div class="job">
+                                <h3>{{ item.school }} <span class="period">· {{ item.start }} – {{ item.end }}</span></h3>
+                                <div class="mag-text">{{ item.major }} / {{ item.degree }}</div>
+                                <div class="job-content">{{ item.content }}</div>
+                            </div>
+                            {% endfor %}
+
+                            <div class="mag-sec">{{ t.open_source }}</div>
+                            {% for project in open_source %}
+                            <div class="job">
+                                <h3>{{ project.name }}</h3>
+                                <div class="mag-text"><a href="{{ project.repository }}" target="_blank"><i class="fa-brands fa-github"></i> {{ project.repository }}</a></div>
+                                <div class="job-content">{{ project.description }}</div>
+                            </div>
+                            {% endfor %}
+                        </div>
+
+                        <div class="mag-right">
+                            <div class="mag-sec">{{ t.contact }}</div>
+                            <div class="mag-text" style="font-size:12.5px;line-height:2.2">
+                                {{ location }}<br>
+                                <a href="mailto:{{ email }}">{{ email }}</a><br>
+                                {% if phone %}{{ phone }}<br>{% endif %}
+                                {% for link in links %}
+                                <a href="{{ link.url }}" target="_blank">{{ link.url }}</a>{% if not loop.last %}<br>{% endif %}
+                                {% endfor %}
+                            </div>
+
+                            <div class="mag-sec">{{ t.stack }}</div>
+                            <div class="stack">
+                                {% for item in stack %}<b>{{ item.group }}:</b> {{ item.items }}<br>{% endfor %}
+                            </div>
+
+                            <div class="mag-sec">{{ t.skills }}</div>
+                            {% for skill in skills %}
+                            <div class="skill">
+                                <div class="srow"><span>{{ skill.name }}</span><span>{{ skill.value }}%</span></div>
+                                <div class="bar"><div class="fill c{{ loop.index }}" style="width: {{ skill.value }}%"></div></div>
+                            </div>
+                            {% endfor %}
+
+                            <div class="mag-sec">{{ t.languages }}</div>
+                            <div class="lang">
+                                {% for lang_item in languages %}{{ lang_item.name }} — {{ lang_item.level }}{% if not loop.last %}<br>{% endif %}{% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const quotes = {{ quotes|tojson }};
+        const box = document.getElementById('catBox');
+        const msg = document.getElementById('catMsg');
+        let quoteIndex = 0;
+        box.addEventListener('mouseenter', function() {
+            box.classList.add('hovering');
+            msg.textContent = quotes[quoteIndex % quotes.length];
+            quoteIndex++;
+        });
+        box.addEventListener('mouseleave', function() {
+            box.classList.remove('hovering');
+            msg.textContent = '';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+t: # translations
+  summary: PROFILE
+  work_experience: EXPERIENCE
+  open_source: OPEN SOURCE
+  stack: TECHNICAL STACK
+  skills: AI SKILLS PROGRESS
+  education: EDUCATION
+  languages: LANGUAGES
+  download_pdf: Download PDF
+  contact: CONTACT
+
+title: Resume
+name: Echo
+headline: QA Engineer → AI Builder
+bio: |
+  **QA engineer with 3 years in test automation**, serving global e-commerce across **41 countries** (Europe, North America, Southeast Asia). Now turning AI onto my own craft — generating test cases with LLMs, analyzing Allure reports with AI, and moving the stack from Node.js + Selenium to Python + Playwright. I believe **"QA engineers are the easiest entry point for AI landing."**
+
+quotes:
+  - "If at first you don't succeed, delete all evidence you tried."
+  - "A bug is just an undocumented feature."
+  - "My code works. I have no idea why."
+  - "I'm not lazy, I'm energy efficient."
+  - "The test passed, so it must be a fluke."
+  - "Deleted the code. Problem solved."
+  - "It works on my machine."
+  - "Coffee first. Code later."
+
+highlights:
+  - value: 3
+    unit: yrs
+    label: Test automation
+  - value: 41
+    unit: countries
+    label: Global coverage
+  - value: 2
+    unit: pipelines
+    label: CI/CD built
+  - value: 100
+    unit: "%"
+    label: Migration done
+
+location: Dalian, China
+email: patata1214@163.com
+phone: ""
+
+links:
+  - icon: fa-brands fa-github
+    url: https://github.com/Patata-echo
+
+work_experience:
+  - company: An e-commerce company
+    position: QA / Test Automation Engineer
+    start: "2023.09"
+    end: "now"
+    content: |
+      * UI automation testing primarily, with some API automation; serving business across 41 countries (Europe, North America, Southeast Asia)
+      * Designed and maintained CI/CD pipelines; implemented parallel test execution across multiple countries/regions on Jenkins
+      * Built a Jenkins × Teams integration that auto-posts test results to Microsoft Teams channels after every job completes, so the team sees pass/fail without opening Jenkins
+      * Led the migration from Node.js + Selenium to Python + Playwright, improving stability and maintainability
+      * AI practice (experimenting): exploring LLM-generated test cases, AI analysis of Allure reports, and AI-assisted assertions
+
+  - company: Shanghai Hongyan Engineering Construction
+    position: ERP Statistician
+    start: "2022.03"
+    end: "2022.10"
+    content: |
+      * Assisted with client needs analysis and business process design; contributed to an information management platform
+
+education:
+  - school: City Institute, Dalian University of Technology
+    degree: Bachelor
+    major: Software Engineering
+    start: "2018.09"
+    end: "2022.06"
+    content: |
+      Relevant coursework: Data Structures, Algorithms Analysis, Database Management, Computer Architecture, Systems Programming, Software Methodology, Virtual Machine, Internet Technology
+
+stack:
+  - group: Testing/Engineering
+    items: Python · Playwright · Selenium · Node.js · API Automation · CI/CD · Jenkins · Allure · Linux
+  - group: AI (learning)
+    items: LLM · RAG · Agent · Prompt Engineering · Fine-tuning
+  - group: Foundations
+    items: Java · C · SQL · Oracle · HTML/CSS · JavaScript
+
+skills:
+  - name: Prompt Engineering
+    value: 90
+  - name: LLM
+    value: 80
+  - name: RAG
+    value: 70
+  - name: Agent
+    value: 55
+  - name: Fine-tuning
+    value: 40
+
+languages:
+  - name: Chinese
+    level: Native
+  - name: English
+    level: CET-6
+  - name: Japanese
+    level: Learning
+
+open_source:
+  - name: Test Crime Scene
+    repository: https://github.com/Patata-echo
+    description: A detective-style pitfall handbook for QA × AI (in progress)

@@ -1,16 +1,22 @@
-## Hi there 👋
+# Echo
 
-<!--
-**Patata-echo/Patata-echo** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+> Testing to AI — on a quest.
 
-Here are some ideas to get you started:
+QA engineer with 3 years in test automation, now pivoting to AI. I believe QA engineers are the easiest entry point for AI landing.
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+## Resume
+
+[Live Demo](https://patata-echo.github.io/resume/)
+
+## What I Do
+
+- Built CI/CD pipelines serving 41 countries on Jenkins
+- Led framework migration from Node.js + Selenium to Python + Playwright
+- Exploring LLM-generated test cases and AI-assisted assertions
+
+## Contact
+
+- Email: patata1214@163.com
+- GitHub: [github.com/Patata-echo](https://github.com/Patata-echo)
+
+Any suggestions or ideas? Feel free to send me an email.

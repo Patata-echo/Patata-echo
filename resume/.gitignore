@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.venv/
+output/
+resume_zh.pdf
+resume_en.pdf
+resume_zh.typ
+resume_en.typ

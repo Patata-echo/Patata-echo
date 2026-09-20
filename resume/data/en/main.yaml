@@ -100,15 +100,15 @@ education:
 
 stack:
   - group: Programming Languages
-    items: Python · JavaScript/Node.js · Java
+    items: Python, JavaScript/Node.js, Java
   - group: AI & Algorithm Frameworks
-    items: LangChain/LangGraph · RAG · MCP · Tool Calling · Skill · BGE-M3 · BGE-Reranker
+    items: LangChain/LangGraph, RAG, MCP, Tool Calling, Skill, BGE-M3, BGE-Reranker
   - group: Automation & Test Development
-    items: Playwright · Selenium · Pytest · UI Automation · API Automation
+    items: Playwright, Selenium, Pytest, UI Automation, API Automation
   - group: Engineering & DevOps
-    items: Docker · Git · Jenkins · CI/CD · Linux · Nginx
+    items: Docker, Git, Jenkins, CI/CD, Linux, Nginx
   - group: Project & Collaboration
-    items: Jira · Confluence · Claude Code · Codex · GitHub Copilot
+    items: Jira, Confluence, Claude Code, Codex, GitHub Copilot
 
 skills:
   - name: Python/Playwright

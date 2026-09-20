@@ -241,7 +241,7 @@
 
                             <div class="mag-sec">{{ t.stack }}</div>
                             <div class="stack">
-                                {% for item in stack %}<b>{{ item.group }}:</b> {{ item.items }}<br>{% endfor %}
+                                {% for item in stack %}<b>{{ item.group }}:</b> {{ item["tech"] }}<br>{% endfor %}
                             </div>
 
                             <div class="mag-sec">{{ t.skills }}</div>

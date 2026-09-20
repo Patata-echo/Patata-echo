@@ -23,7 +23,7 @@
 
 ## Contact
 
-- Email: janezhaona@163.com
+- Email: patata1214@163.com
 - GitHub: [github.com/Patata-echo](https://github.com/Patata-echo)
 
 Open to AI Agent engineer opportunities. Let's connect!

@@ -6,7 +6,7 @@
 
 ## Resume
 
-[View Resume (English)](https://patata-echo.github.io/resume/)
+[View Resume](https://patata-echo.github.io/Patata-echo/)
 
 ## What I Do
 

@@ -1,7 +1,0 @@
-/* Custom tweaks */
-section#bio { align-items: center; }
-section#bio h2 { margin-bottom: 8px; }
-section#bio .text-xl p { margin-bottom: 8px; }
-section#bio ul { list-style: none; }
-section#bio ul li::before { content: "• "; color: #4f46e5; }
-section#bio blockquote { border-left: 3px solid #4f46e5; padding-left: 12px; color: #57606a; margin: 12px 0; }

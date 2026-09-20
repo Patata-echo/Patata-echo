@@ -1,7 +1,7 @@
 t: # translations
   summary: PROFILE
   work_experience: EXPERIENCE
-  open_source: OPEN SOURCE
+  project_experience: PROJECT EXPERIENCE
   stack: TECHNICAL STACK
   skills: AI SKILLS PROGRESS
   education: EDUCATION
@@ -11,19 +11,19 @@ t: # translations
 
 title: Resume
 name: Echo
-headline: QA Engineer → AI Builder
+headline: AI Agent Engineer
 bio: |
-  **QA engineer with 3 years in test automation**, serving global e-commerce across **41 countries** (Europe, North America, Southeast Asia). Now turning AI onto my own craft — generating test cases with LLMs, analyzing Allure reports with AI, and moving the stack from Node.js + Selenium to Python + Playwright. I believe **"QA engineers are the easiest entry point for AI landing."**
+  2022 Graduate from Dalian University of Technology, Bachelor's in Software Engineering. Possess 3 years of experience in cross-border business system automation testing and architecture development, responsible for quality assurance of complex e-commerce systems covering 41 countries. Capable of building testing systems from 0 to 1, with extensive hands-on experience in long-chain system high-concurrency scheduling, fault tolerance, resource reuse, and multilingual internationalization (i18n) scenarios. Deeply embrace AI technology, with in-depth knowledge of RAG, MCP, Agent tool calling, and LangGraph state machine orchestration. Successfully implemented an LLM-based intelligent test report attribution system in practical work. Currently transitioning towards AI Agent system testing/application development, aiming to combine solid engineering stability experience with AI architecture.
 
 quotes:
-  - "If at first you don't succeed, delete all evidence you tried."
-  - "A bug is just an undocumented feature."
-  - "My code works. I have no idea why."
-  - "I'm not lazy, I'm energy efficient."
-  - "The test passed, so it must be a fluke."
-  - "Deleted the code. Problem solved."
-  - "It works on my machine."
-  - "Coffee first. Code later."
+  - "Quality is not an act, it is a habit."
+  - "The only way to do great work is to love what you do."
+  - "First, solve the problem. Then, write the code."
+  - "Talk is cheap. Show me the code."
+  - "Any fool can write code that a computer can understand."
+  - "Good code is its own best documentation."
+  - "Simplicity is the soul of efficiency."
+  - "Make it work, make it right, make it fast."
 
 highlights:
   - value: 3
@@ -32,12 +32,12 @@ highlights:
   - value: 41
     unit: countries
     label: Global coverage
-  - value: 2
-    unit: pipelines
-    label: CI/CD built
-  - value: 100
+  - value: 70
     unit: "%"
-    label: Migration done
+    label: Efficiency improved
+  - value: 90
+    unit: "%"
+    label: Test coverage
 
 location: Dalian, China
 email: patata1214@163.com
@@ -48,52 +48,79 @@ links:
     url: https://github.com/Patata-echo
 
 work_experience:
-  - company: An e-commerce company
-    position: QA / Test Automation Engineer
+  - company: Xenera Digital Technology Co., Ltd.
+    position: Automation Test Engineer (Test Development)
     start: "2023.09"
-    end: "now"
+    end: "Present"
     content: |
-      * UI automation testing primarily, with some API automation; serving business across 41 countries (Europe, North America, Southeast Asia)
-      * Designed and maintained CI/CD pipelines; implemented parallel test execution across multiple countries/regions on Jenkins
-      * Built a Jenkins × Teams integration that auto-posts test results to Microsoft Teams channels after every job completes, so the team sees pass/fail without opening Jenkins
-      * Led the migration from Node.js + Selenium to Python + Playwright, improving stability and maintainability
-      * AI practice (experimenting): exploring LLM-generated test cases, AI analysis of Allure reports, and AI-assisted assertions
+      * High-concurrency, cross-border complex environment system stability development: Led and independently built the underlying architecture verification platform covering 41 countries across Europe, North America, Southeast Asia, Japan, and Korea (multilingual/multi-timezone/multi-currency). By referencing Agent long-connection and memory reuse mechanisms, restructured system login state reuse, reducing single-region execution time from 1.5 hours to 1 hour. Through decoupling and optimizing parallel scheduling, achieved concurrent processing of 9 country Jobs and introduced flexible routing mechanisms with on-demand configuration among 14 role permissions, compressing overall execution time from 10 hours to 3 hours.
+      * Self-healing and fault tolerance mechanism design: Fully responsible for the core testing framework migration from Node.js + Selenium to Python + Playwright. Combined Docker containerized environment simulation with intelligent script retry mechanisms, formulated degradation and retry strategies for cross-regional long-chain batch processing issues with long execution times and occasional errors, improving system stability by 40%.
+      * Automation workflow and efficiency improvement: Built cross-environment configuration management using Jenkins Pipeline, and implemented automated workflow integration between Jenkins and Microsoft Teams, automatically pushing results after testing completion, improving team communication efficiency by 70%.
+      * AI-empowered and LLM intelligent operations practice: Designed scripts to automate report fetching, parsing, and result archiving. Core failure cause classification integrated LLM API with historical classification cases for few-shot prompting, aligning classification results with team attribution habits, replacing manual judgment, and improving test report analysis efficiency by 70%.
 
-  - company: Shanghai Hongyan Engineering Construction
-    position: ERP Statistician
-    start: "2022.03"
-    end: "2022.10"
+project_experience:
+  - title: Cross-border E-commerce Backend System Quality Assurance Platform
+    role: Independent Test Development Engineer
+    start: "2023.09"
+    end: "Present"
     content: |
-      * Assisted with client needs analysis and business process design; contributed to an information management platform
+      Supporting core e-commerce business (products, shopping cart, payment, logistics) across 41 countries, ensuring absolute system stability in complex cross-border network environments.
+      * Designed layered testing architecture: UI layer (Playwright) + API layer (Requests/Pytest), achieving closed-loop verification of business logic and underlying data.
+      * Built high-concurrency CI/CD system: Utilized Jenkins Pipeline to handle complex cross-environment configuration and permission control, achieving scheduled triggering and multi-threaded concurrent execution of automated tests, improving overall test coverage to 90%.
+
+  - title: Intelligent Log Attribution Tool
+    role: Independent Design & Development
+    start: "2025.04"
+    end: "Present"
+    content: |
+      After each weekly automated testing cycle, the team needed to manually review failed test cases in Allure reports, determine failure causes, and fill in a prescribed Excel template.
+      * Scripts automatically fetch and parse the latest Allure test reports, extracting error stack traces for each failed test case.
+      * For each error, called LLM API to determine failure cause category, using Few-shot Prompting with historical manual classification cases to align results with team attribution habits, replacing manual judgment.
+      * Classification results automatically populate the team's prescribed Excel attribution template and compile failure frequency statistics to assist in identifying high-frequency issues.
+
+  - title: AI-Driven Intelligent Testing Assistant System (POC Engineering Practice)
+    role: Independent Exploration & Development
+    start: "2025.10"
+    end: "Present"
+    content: |
+      Initiated exploration of LLM applications in testing to address pain points of high automation test case writing costs and manual report interpretation.
+      * MCP Architecture Design & Implementation: Based on Python official SDK, encapsulated testing_context_server MCP Server. Core implementation includes parse_report_summary tool that extracts complex Jenkins logs into concise JSON context via regex, significantly reducing Token consumption.
+      * RAG Retrieval Enhancement & Embedding Selection: Considering multilingual retrieval requirements, adopted BGE-M3 (multilingual hybrid retrieval) combined with BM25 keyword retrieval, using BGE-Reranker-v2-m3 to re-rank Top-20 results.
+      * Skill Framework Design & Progressive Disclosure Practice: Consolidated team testing standards into playwright_code_gen Skill files. Utilized progressive disclosure mechanism to inject only skill summaries into system prompts.
+      * LangGraph State Machine Orchestration & Dead Loop Prevention: Built the full-chain state diagram for "read requirements -> fetch environment context -> generate code -> execute test -> log repair". Introduced state hash detection and failure degradation strategies.
 
 education:
-  - school: City Institute, Dalian University of Technology
+  - school: Dalian University of Technology
     degree: Bachelor
     major: Software Engineering
     start: "2018.09"
     end: "2022.06"
     content: |
-      Relevant coursework: Data Structures, Algorithms Analysis, Database Management, Computer Architecture, Systems Programming, Software Methodology, Virtual Machine, Internet Technology
+      Relevant coursework: Data Structures, Algorithms Analysis, Database Management, Computer Architecture, Systems Programming, Software Methodology
 
 stack:
-  - group: Testing/Engineering
-    items: Python · Playwright · Selenium · Node.js · API Automation · CI/CD · Jenkins · Allure · Linux
-  - group: AI (learning)
-    items: LLM · RAG · Agent · Prompt Engineering · Fine-tuning
-  - group: Foundations
-    items: Java · C · SQL · Oracle · HTML/CSS · JavaScript
+  - group: Programming Languages
+    items: Python · JavaScript/Node.js · Java
+  - group: AI & Algorithm Frameworks
+    items: LangChain/LangGraph · RAG · MCP · Tool Calling · Skill · BGE-M3 · BGE-Reranker
+  - group: Automation & Test Development
+    items: Playwright · Selenium · Pytest · UI Automation · API Automation
+  - group: Engineering & DevOps
+    items: Docker · Git · Jenkins · CI/CD · Linux · Nginx
+  - group: Project & Collaboration
+    items: Jira · Confluence · Claude Code · Codex · GitHub Copilot
 
 skills:
-  - name: Prompt Engineering
+  - name: Python/Playwright
     value: 90
-  - name: LLM
+  - name: CI/CD/Jenkins
+    value: 85
+  - name: AI/LLM
     value: 80
-  - name: RAG
-    value: 70
-  - name: Agent
-    value: 55
-  - name: Fine-tuning
-    value: 40
+  - name: RAG/MCP/Agent
+    value: 75
+  - name: Docker/Linux
+    value: 80
 
 languages:
   - name: Chinese
@@ -101,9 +128,4 @@ languages:
   - name: English
     level: CET-6
   - name: Japanese
-    level: Learning
-
-open_source:
-  - name: Test Crime Scene
-    repository: https://github.com/Patata-echo
-    description: A detective-style pitfall handbook for QA × AI (in progress)
+    level: Reading and writing
